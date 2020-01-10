@@ -21,6 +21,14 @@ public class MainTest {
     public void after() throws Exception {
     }
 
+    @Test
+    public void testConstructor() {
+        // given
+        // when
+        Main main = new Main();
+        // then
+    }
+
     /**
      * Method: main(String[] args)
      */
