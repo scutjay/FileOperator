@@ -1,4 +1,4 @@
-package com.jaywu;
+package com.jaywu.enums;
 
 public enum ResultType {
     SUCCESS("Success"), FAILED("Failed"), NOT_AUDIO("NotAudio");

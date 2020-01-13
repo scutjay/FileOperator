@@ -1,4 +1,4 @@
-package com.jaywu;
+package com.jaywu.enums;
 
 public enum AudioFileType {
     MKV("mkv"), MP4("mp4"), RMVB("rmvb"), AVI("avi");

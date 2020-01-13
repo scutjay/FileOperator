@@ -1,15 +1,15 @@
-package com.jaywu;
+package com.jaywu.objects;
 
+import com.jaywu.enums.AudioFileType;
+import com.jaywu.exception.FileTypeNotFoundException;
+import com.jaywu.objects.MyFile;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.Before;
-import org.junit.After;
 import org.junit.rules.ExpectedException;
 
-import java.io.FileNotFoundException;
-
 import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.assertTrue;
 
 /**
  * MyFile Tester.
@@ -23,18 +23,18 @@ public class MyFileTest {
     public ExpectedException thrown = ExpectedException.none();
 
     @Before
-    public void before() throws Exception {
+    public void before() {
     }
 
     @After
-    public void after() throws Exception {
+    public void after() {
     }
 
     @Test
     public void should_return_normally_when_call_constructor() {
         // given
         // when
-        MyFile myFile = new MyFile("");
+        new MyFile("");
         // then
     }
 
@@ -42,10 +42,10 @@ public class MyFileTest {
     public void should_throw_exception_when_call_getFileType_given_no_dot_string_as_file_path() throws Exception {
         // given
         MyFile file = new MyFile("test");
-        thrown.expect(Exception.class);
+        thrown.expect(FileTypeNotFoundException.class);
         thrown.expectMessage("No file type found");
         // when
-        String rtn = file.getFileType();
+        file.getFileType();
         // then
     }
 
@@ -53,10 +53,10 @@ public class MyFileTest {
     public void should_throw_exception_when_call_getFileType_given_last_dot_string_as_file_path() throws Exception {
         // given
         MyFile file = new MyFile("test.");
-        thrown.expect(Exception.class);
+        thrown.expect(FileTypeNotFoundException.class);
         thrown.expectMessage("No file type found");
         // when
-        String rtn = file.getFileType();
+        file.getFileType();
         // then
     }
 
@@ -68,10 +68,5 @@ public class MyFileTest {
         String rtn = file.getFileType();
         // then
         assertEquals(AudioFileType.RMVB.getValue(), rtn);
-    }
-    @Test
-    public void test() throws Exception {
-        thrown.expect(Exception.class);
-        throw new Exception("");
     }
 } 
