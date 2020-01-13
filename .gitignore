@@ -30,3 +30,4 @@ _ReSharper*/
 *.idea
 *.scannerwork
 target
+*.iml
