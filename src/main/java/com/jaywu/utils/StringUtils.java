@@ -8,11 +8,14 @@ public class StringUtils {
     }
 
     public static String removeTargetString(String origin, String target) throws StringUtilsException {
+        String rtn = origin;
         if (isEmpty(origin))
             throw new StringUtilsException("No input string found");
         if (!isEmpty(target)) {
-            return origin.replaceAll(target, "");
+            int idx;
+            while((idx = rtn.indexOf(target)) >= 0)
+                rtn = rtn.substring(0, idx) + rtn.substring(idx + target.length());
         }
-        return origin;
+        return rtn;
     }
 }
